@@ -52,13 +52,13 @@ class MainActivity : AppCompatActivity() {
 
         Timber.plant(Timber.DebugTree())
 
-        lifecycle.addObserver(WeatherObserver())
+        // Trying to fetch
+        lifecycle.addObserver(WeatherObserver(model))
 
         model.currentTemperature.observe(this, Observer<Float> {
             Timber.i("Temperature changed, $it")
         })
 
-        model.currentTemperature.value = 10f
 
     }
 }
